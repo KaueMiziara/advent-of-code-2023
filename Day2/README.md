@@ -2,7 +2,6 @@
 
 ## Running the code
 
-### Part 1
 Simply run one of the following commands in the terminal.
 
 
