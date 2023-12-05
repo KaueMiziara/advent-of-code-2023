@@ -46,7 +46,7 @@
 
 (defn main
   []
-  (let [input (read-input "./sample.txt")
+  (let [input (read-input "./input.txt")
     cards (atom (vec (repeat (count input) 1)))]
   (doseq [line-index (range (count input))]
     (let [line (nth input line-index)
