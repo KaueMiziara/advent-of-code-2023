@@ -4,7 +4,7 @@ My goal is to do each exercise in a different language.
 
 The language will be chosen randomly from this set (subject to changes): 
 > Bash, C, C++(+), C#, D, Clojure(+), Crystal, <br>
-> Dart, Elixir, Go, Haskell, Java, Javascript, Julia, <br>
+> Dart, Elixir, Go, Haskell(+), Java, Javascript, Julia, <br>
 > Kotlin, Lua(+), OCaml, Odin, PHP, Python, Ruby(+), <br>
 > Rust, Swift, Typescript(+), Zig(+). <br>
 
@@ -15,3 +15,4 @@ The language will be chosen randomly from this set (subject to changes):
 - Day 4 - Clojure
 - Day 5 - C++
 - Day 6 - Typescript
+- Day 7 - Haskell
