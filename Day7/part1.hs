@@ -39,7 +39,7 @@ formatCards = map charToCard
 parseHand :: (String -> String) -> String -> Hand
 parseHand format input = case words input of
     [hand, bid] -> Hand (format hand) (read bid)
-    _ -> error "Invalid input"
+    -- _ -> error "Invalid input"
 
 
 parse :: (String -> String) -> String -> [Hand]
