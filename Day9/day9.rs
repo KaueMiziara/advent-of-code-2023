@@ -1,6 +1,7 @@
 use std::{fs::File, io::Read};
 
 // Extrapolate the next value by finding the difference in the sequence's values.
+// Part 2: extrapolate backwards.
 
 fn main() {
     let lines = read_input("input.txt");
@@ -9,13 +10,17 @@ fn main() {
         .map(|l| l.split(" ").map(|x| x.parse::<i32>().unwrap()).collect())
         .collect();
 
-    let mut answer: i32 = 0;
+    let mut answer_part1: i32 = 0;
+    let mut answer_part2: i32 = 0;
 
     days.iter().for_each(|day| {
-        answer += extrapolate(&day);
+        answer_part1 += extrapolate(&day);
+        answer_part2 += extrapolate_backwards(&day);
     });
 
-    println!("Answer: {}", answer);
+    println!("Answers:");
+    println!("Part1: {}", answer_part1);
+    println!("Part2: {}", answer_part2);
 }
 
 fn extrapolate(x: &Vec<i32>) -> i32 {
@@ -26,6 +31,16 @@ fn extrapolate(x: &Vec<i32>) -> i32 {
     let value_to_append = extrapolate(&get_differences(x));
 
     x.last().unwrap() + value_to_append
+}
+
+fn extrapolate_backwards(x: &Vec<i32>) -> i32 {
+    if is_all_zeroes(x) {
+        return 0;
+    }
+
+    let value_to_prepend = extrapolate_backwards(&get_differences(x));
+
+    x.first().unwrap() - value_to_prepend
 }
 
 fn get_differences(values: &Vec<i32>) -> Vec<i32> {
