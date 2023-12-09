@@ -6,7 +6,7 @@ The language will be chosen randomly from this set (subject to changes):
 > Bash, C, C++(+), C#, D, Clojure(+), Crystal, <br>
 > Dart, Elixir(+), Go, Haskell(+), Java, Javascript, Julia, <br>
 > Kotlin, Lua(+), OCaml, Odin, PHP, Python, Ruby(+), <br>
-> Rust, Swift, Typescript(+), Zig(+). <br>
+> Rust(+), Swift, Typescript(+), Zig(+). <br>
 
 ### Languages
 - Day 1 - Zig
@@ -17,3 +17,4 @@ The language will be chosen randomly from this set (subject to changes):
 - Day 6 - Typescript
 - Day 7 - Haskell
 - Day 8 - Elixir
+- Day 9 - Rust
