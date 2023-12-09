@@ -3,10 +3,10 @@
 My goal is to do each exercise in a different language.
 
 The language will be chosen randomly from this set (subject to changes): 
-> Bash, C, C++(+), C#, D, Clojure(+), Crystal, <br>
-> Dart, Elixir(+), Go, Haskell(+), Java, Javascript, Julia, <br>
-> Kotlin, Lua(+), OCaml, Odin, PHP, Python, Ruby(+), <br>
-> Rust(+), Swift, Typescript(+), Zig(+). <br>
+> Bash, C, C#, D, <br>
+> Crystal, Dart, Go, Java, <br>
+> Javascript, Julia, Kotlin, OCaml, <br>
+> Odin, PHP, Python, Swift. <br>
 
 ### Languages
 - Day 1 - Zig
