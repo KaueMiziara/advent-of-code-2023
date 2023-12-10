@@ -4,17 +4,18 @@ My goal is to do each exercise in a different language.
 
 The language will be chosen randomly from this set (subject to changes): 
 > Bash, C, C#, D, <br>
-> Dart, F#, Go, Java, <br>
+> Dart, F#, Java, <br>
 > Javascript, Julia, Kotlin, OCaml, <br>
 > Odin, PHP, Python, Swift. <br>
 
 ### Languages
-- Day 1 - Zig
-- Day 2 - Lua
-- Day 3 - Ruby
-- Day 4 - Clojure
-- Day 5 - C++
-- Day 6 - Typescript
-- Day 7 - Haskell
-- Day 8 - Elixir
-- Day 9 - Rust
+- Day 01 - Zig
+- Day 02 - Lua
+- Day 03 - Ruby
+- Day 04 - Clojure
+- Day 05 - C++
+- Day 06 - Typescript
+- Day 07 - Haskell
+- Day 08 - Elixir
+- Day 09 - Rust
+- Day 10 - Go
