@@ -4,7 +4,7 @@ My goal is to do each exercise in a different language.
 
 The language will be chosen randomly from this set (subject to changes): 
 > Bash, C, C#, D, <br>
-> Crystal, Dart, Go, Java, <br>
+> Dart, F#, Go, Java, <br>
 > Javascript, Julia, Kotlin, OCaml, <br>
 > Odin, PHP, Python, Swift. <br>
 
