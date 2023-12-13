@@ -6,7 +6,7 @@ The language will be chosen randomly from this set (subject to changes):
 > Bash, C#, <br>
 > Dart, F#, Java, <br>
 > Javascript, Julia, Kotlin, OCaml, <br>
-> Odin, PHP, Python, Swift. <br>
+> Odin, PHP, Swift. <br>
 
 ### Languages
 - Day 01 - Zig
@@ -21,3 +21,4 @@ The language will be chosen randomly from this set (subject to changes):
 - Day 10 - Go
 - Day 11 - C
 - Day 12 - D
+- Day 13 - Python
