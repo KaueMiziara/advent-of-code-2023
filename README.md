@@ -3,7 +3,7 @@
 My goal is to do each exercise in a different language.
 
 The language will be chosen randomly from this set (subject to changes): 
-> Bash, C#, D, <br>
+> Bash, C#, <br>
 > Dart, F#, Java, <br>
 > Javascript, Julia, Kotlin, OCaml, <br>
 > Odin, PHP, Python, Swift. <br>
@@ -20,3 +20,4 @@ The language will be chosen randomly from this set (subject to changes):
 - Day 09 - Rust
 - Day 10 - Go
 - Day 11 - C
+- Day 12 - D
