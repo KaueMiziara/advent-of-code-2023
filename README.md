@@ -4,7 +4,7 @@ My goal is to do each exercise in a different language.
 
 The language will be chosen randomly from this set (subject to changes): 
 > C#, Dart, F#, <br>
-> Java, Javascript, Kotlin, <br>
+> Java, Javascript, <br>
 > OCaml, Odin, PHP <br>
 > Swift, Vala. <br>
 
@@ -23,3 +23,4 @@ The language will be chosen randomly from this set (subject to changes):
 - Day 12 - D
 - Day 13 - Python
 - Day 14 - Julia
+- Day 15 - Kotlin
