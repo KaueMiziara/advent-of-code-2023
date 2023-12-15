@@ -3,10 +3,10 @@
 My goal is to do each exercise in a different language.
 
 The language will be chosen randomly from this set (subject to changes): 
-> Bash, C#, <br>
-> Dart, F#, Java, <br>
-> Javascript, Kotlin, OCaml, <br>
-> Odin, PHP, Swift. <br>
+> C#, Dart, F#, <br>
+> Java, Javascript, Kotlin, <br>
+> OCaml, Odin, PHP <br>
+> Swift, Vala. <br>
 
 ### Languages
 - Day 01 - Zig
