@@ -66,7 +66,7 @@ function main(): void {
     foreach ($energized_map as $row)
         $energized_count += array_count_values($row)[1] ?? 0;
 
-    echo $energized_count . PHP_EOL;
+    echo "Answer: " . $energized_count . PHP_EOL;
 }
 
 main();
