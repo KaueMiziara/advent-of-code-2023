@@ -53,19 +53,20 @@ function follow_light_path(
 }
 
 function main(): void {
-    
+    $input = file_get_contents('input.txt');
+    $input = explode(PHP_EOL, trim($input));
+
+    foreach ($input as $key => $row)
+        $input[$key] = str_split($row);
+
+    $energized_map = $input;
+    follow_light_path($input, $energized_map);
+
+    $energized_count = 0;
+    foreach ($energized_map as $row)
+        $energized_count += array_count_values($row)[1] ?? 0;
+
+    echo $energized_count . PHP_EOL;
 }
-$input = file_get_contents('input.txt');
-$input = explode(PHP_EOL, trim($input));
 
-foreach ($input as $key => $row)
-    $input[$key] = str_split($row);
-
-$energized_map = $input;
-follow_light_path($input, $energized_map);
-
-$energized_count = 0;
-foreach ($energized_map as $row)
-    $energized_count += array_count_values($row)[1] ?? 0;
-
-echo $energized_count . PHP_EOL;
+main();
