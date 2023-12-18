@@ -13,6 +13,9 @@ class Program
 
         var answer1 = AocUtils.Part1(input);
         Console.WriteLine("Part 1 answer: {0}", answer1.ToString());
+
+        var answer2 = AocUtils.Part2(input);
+        Console.WriteLine("Part 2 answer: {0}", answer2.ToString());
     }
 }
 
@@ -27,16 +30,44 @@ class AocUtils
         foreach (var line in input)
         {
             polygon.Add(position);
-            var steps = line.Split(' ');
+            var instructions = line.Split(' ');
 
-            var length = int.Parse(steps[1]);
+            var length = int.Parse(instructions[1]);
 
-            position = steps[0] switch
+            position = instructions[0] switch
             {
                 "R" => new Point(position.Row, position.Col + length),
                 "L" => new Point(position.Row, position.Col - length),
                 "D" => new Point(position.Row + length, position.Col),
                 "U" => new Point(position.Row - length, position.Col),
+            };
+
+            circumference += length;
+        }
+
+        return AocUtils.GaussArea(polygon) + circumference / 2 + 1;
+    }
+
+    public static double Part2(string[] input)
+    {
+        var polygon = new List<Point>();
+        var position = new Point(0, 0);
+        var circumference = 0.0;
+
+        foreach (var line in input)
+        {
+            polygon.Add(position);
+            var instructions = line.Split(' ');
+
+            var hex = instructions[2].TrimStart('(').TrimEnd(')');
+            var length = long.Parse(hex[1..^1], System.Globalization.NumberStyles.HexNumber);
+
+            position = hex.Last() switch
+            {
+                '0' => new Point(position.Row, position.Col + length),
+                '1' => new Point(position.Row + length, position.Col),
+                '2' => new Point(position.Row, position.Col - length),
+                '3' => new Point(position.Row - length, position.Col),
             };
 
             circumference += length;
