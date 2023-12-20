@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 function main() {
-    fs.readFile('sample.txt', (err, data) => {
+    fs.readFile('input.txt', (err, data) => {
         if (err) throw new Error("data :(");
 
         const [rawPipelines, rawItems] = data.toString().trim().split(/\n\n/g);
