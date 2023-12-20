@@ -4,8 +4,7 @@ My goal is to do each exercise in a different language.
 
 The language will be chosen randomly from this set (subject to changes): 
 > Dart, F#, Java, <br>
-> Javascript, OCaml <br>
-> Swift, Vala. <br>
+> OCaml, Swift, Vala. <br>
 
 ### Languages
 - Day 01 - Zig
@@ -26,3 +25,4 @@ The language will be chosen randomly from this set (subject to changes):
 - Day 16 - PHP
 - Day 17 - Odin
 - Day 18 - C#
+- Day 19 - Javascript
