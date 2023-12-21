@@ -3,7 +3,7 @@
 My goal is to do each exercise in a different language.
 
 The language will be chosen randomly from this set (subject to changes): 
-> Dart, F#, Java, <br>
+> Java, F#, <br>
 > OCaml, Swift, Vala. <br>
 
 ### Languages
@@ -26,3 +26,4 @@ The language will be chosen randomly from this set (subject to changes):
 - Day 17 - Odin
 - Day 18 - C#
 - Day 19 - Javascript
+- Day 20 - Dart
