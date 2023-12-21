@@ -9,8 +9,9 @@ void main() async {
   for (String module in input) {
     List<String> parts = module.split(" -> ");
     String name = parts[0].substring(1);
-    
-    modules[name] = Module(name, parts[0][0], parts[1].split(",").map((e) => e.trim()).toList());
+
+    modules[name] = Module(
+        name, parts[0][0], parts[1].split(",").map((e) => e.trim()).toList());
   }
 
   for (Module mod in modules.values) {
@@ -35,12 +36,15 @@ void main() async {
       (String, String, int) event = processingQueue.removeFirst();
       if (i <= 1000) counter[event.$3]++;
 
-      modules[event.$2]!.process(event.$3, event.$1, i).forEach(processingQueue.add);
+      modules[event.$2]!
+          .process(event.$3, event.$1, i)
+          .forEach(processingQueue.add);
     }
   }
 
   print("Part 1 answer: ${counter[0] * counter[1]}");
-  print("Part 2 answer: ${modules.values.fold(1, (lcm, e) => AoCUtils.calculateLCM(lcm, e.cycle))}");
+  print(
+      "Part 2 answer: ${modules.values.fold(1, (lcm, e) => AoCUtils.calculateLCM(lcm, e.cycle))}");
 }
 
 class Module {
@@ -48,9 +52,9 @@ class Module {
   String type;
 
   int cycle = 1;
-  
+
   bool powered = false;
-  
+
   List<String> connected;
   Map<String, int> inputs = {};
 
@@ -61,29 +65,26 @@ class Module {
       case "%":
         if (pulse == 0) {
           powered = !powered;
-          
+
           return List.generate(
-            connected.length, (i) => (name, connected[i], powered ? 1 : 0)
-          );
+              connected.length, (i) => (name, connected[i], powered ? 1 : 0));
         }
         break;
 
       case "&":
         inputs[from] = pulse;
         int output = inputs.values.any((e) => e == 0) ? 1 : 0;
-        
+
         if (powered && output == 1) {
           cycle = press;
         }
 
         return List.generate(
-          connected.length, (i) => (name, connected[i], output)
-        );
+            connected.length, (i) => (name, connected[i], output));
 
       case "b":
         return List.generate(
-          connected.length, (i) => (name, connected[i], pulse)
-        );
+            connected.length, (i) => (name, connected[i], pulse));
     }
 
     return [];
