@@ -1,11 +1,5 @@
 # Advent of Code - 2023
 
-My goal is to do each exercise in a different language.
-
-The language will be chosen randomly from this set (subject to changes): 
-> Java, OCaml, <br>
-> Swift, Vala. <br>
-
 ### Languages
 - Day 01 - Zig
 - Day 02 - Lua
@@ -28,3 +22,4 @@ The language will be chosen randomly from this set (subject to changes):
 - Day 19 - Javascript
 - Day 20 - Dart
 - Day 21 - F#
+- Day 22 - Java
