@@ -23,3 +23,4 @@
 - Day 20 - Dart
 - Day 21 - F#
 - Day 22 - Java
+- Day 23 - Go
