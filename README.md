@@ -24,5 +24,6 @@
 - Day 21 - F#
 - Day 22 - Java
 - Day 23 - Go (2)
-- Day 24 - Rust (2) -> missing part 2
+- Day 24 (part 1) - Rust (2)
+- Day 24 (part 2) - Julia (2)
 - Day 25 - C# (2)
