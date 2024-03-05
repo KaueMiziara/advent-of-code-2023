@@ -146,6 +146,87 @@ md"""
 In this case, $P$ and $Q$ collide at $\begin{pmatrix} 9 & 18 & 20 \end{pmatrix}$ when $t = 5$.
 """
 
+# ╔═╡ f6790fc7-ec85-447d-9af8-c3f7246ee8ab
+md"""
+## Equationating the Problem
+
+With this theory established, we can now formulate the.
+
+Let "$r$" be our rock. We need to find its initial position $p_r = \begin{pmatrix} r_x & r_y & r_z \end{pmatrix}$ and velocity $v_r = \begin{pmatrix} v_{r_x} & v_{r_y} & v_{r_z} \end{pmatrix}$.
+
+To find these 6 unkowns, we'll need at least 6 equations.
+
+Since we can start at any position, we can create the first three equations to ensure the rock collides with the first hailstone, $p_0$, at $t_0 = 0$:
+
+$\begin{cases}
+p_{0_x} + v_{0_x} \cdot t_0 = r_x + v_{r_x} \cdot t_0 \\
+p_{0_y} + v_{0_y} \cdot t_0 = r_y + v_{r_y} \cdot t_0 \\
+p_{0_z} + v_{0_z} \cdot t_0 = r_z + v_{r_z} \cdot t_0 \\
+\end{cases}$
+
+Since time is not relevant for this analysis, we can isolate it:
+
+$\begin{cases}
+t_0 = \frac{r_x - p_{0_x}}{v_{0_x} - v_{r_x}} \\
+t_0 = \frac{r_y - p_{0_y}}{v_{0_y} - v_{r_y}} \\
+t_0 = \frac{r_z - p_{0_z}}{v_{0_z} - v_{r_z}} \\
+\end{cases}$
+"""
+
+# ╔═╡ 1e802438-a50f-41f1-bdb8-3bf735204fda
+md"""
+Eliminating $t_0$ from the system and manipulating the equations, we'll have:
+
+$\begin{cases}
+r_x v_{0_y} - r_x v_{r_y} - p_{0_x} v_{0_y} + p_{0_x} v_{r_y} = r_y v_{0_x} - r_y v_{r_x} - p_{0_y} v_{0_x} + p_{0_y} v_{r_x} \space (I) \\
+
+r_x v_{0_z} - r_x v_{r_z} - p_{0_x} v_{0_z} + p_{0_x} v_{r_z} = r_z v_{0_x} - r_z v_{r_x} - p_{0_z} v_{0_x} + p_{0_z} v_{r_x} \space (II) \\
+\end{cases}$
+
+These equations are true for any hailstone $N$, allowing us to add two new equations for hailstone $p_N$:
+
+$\begin{cases}
+r_x v_{N_y} - r_x v_{r_y} - p_{N_x} v_{N_y} + p_{N_x} v_{r_y} = r_y v_{N_x} - r_y v_{r_x} - p_{N_y} v_{N_x} + p_{N_y} v_{r_x} \space (III) \\
+
+r_x v_{N_z} - r_x v_{r_z} - p_{N_x} v_{N_z} + p_{N_x} v_{r_z} = r_z v_{N_x} - r_z v_{r_x} - p_{N_z} v_{N_x} + p_{N_z} v_{r_x} \space (IV) \\
+\end{cases}$
+
+Let's subtract $(I) - (III)$ and $(II) - (IV)$ to ensure the equations are in the expected format (all six unkowns on the left-hand side and only constants on the right-hand):
+
+$\begin{cases}
+r_x(v_{0_y} - v_{N_y}) + r_y(v_{N_x} - v_{0_x}) + r_z(0) + v_{r_x}(p_{N_y} - p_{0_y}) + v_{r_y}(p_{0_x} - p_{N_x}) + v_{r_z}(0) = \\ = p_{0_x} v_{0_y} - p_{0_y} v_{0_x} - p_{N_x} v_{N_y} + p_{N_y} v_{N_x} \\ \\
+
+r_x(v_{0_z} - v_{N_z}) + r_y(0) + r_z(v_{N_x} - v_{0_x}) + v_{r_x}(p_{N_z} - p_{0_z}) + v_{r_y}(0) + v_{r_z}(p_{0_x} - p_{N_x}) = \\ = p_{0_x} v_{0_z} - p_{0_z} v_{0_x} - p_{N_x} v_{N_z} + p_{N_z} v_{N_x} \\ \\
+\end{cases}$
+
+These new equations allow us to create a six-equation linear system by choosing any three hailstones.
+"""
+
+# ╔═╡ 713ab80f-5bed-4601-8948-84c647db4517
+md"""
+## Solving the Problem (finally)
+
+The last steps are to choose 3 hailstones from your input and solve the system using your favorite method.
+
+### Hailstones
+
+I chose the first hailstones from my file (mind that the file is unique per account):
+
+$\begin{cases}
+p_0 = \begin{pmatrix} 291493672529314 & 259618209733833 & 379287136024123 \end{pmatrix} \\ 
+v_0 =  \begin{pmatrix} -9 & 119 & -272 \end{pmatrix} \\
+\\
+p_1 = \begin{pmatrix} 308409248682955 & 156803514643857 & 424989308414284 \end{pmatrix} \\
+v_1 =  \begin{pmatrix} -78 & 236 & -255 \end{pmatrix} \\
+\\
+p_2 = \begin{pmatrix} 195379943194796 & 213851381371727 & 355270583377422 \end{pmatrix} \\
+v_2 =  \begin{pmatrix} 25 & 14 & -15 \end{pmatrix} \\
+\\
+p_3 = \begin{pmatrix} 297329579961934 & 122004770593749 & 344090716183747 \end{pmatrix} \\
+v_3 =  \begin{pmatrix} -87 & 185 & -36 \end{pmatrix} \\
+\end{cases}$
+"""
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -1222,5 +1303,8 @@ version = "1.4.1+1"
 # ╟─3d266d35-1f24-47c1-a6dc-103f6599f0a4
 # ╟─c79c8a36-6610-4593-b332-4c60c41c8a98
 # ╟─ad834866-1840-41eb-bd76-32b35865b2d3
+# ╟─f6790fc7-ec85-447d-9af8-c3f7246ee8ab
+# ╟─1e802438-a50f-41f1-bdb8-3bf735204fda
+# ╟─713ab80f-5bed-4601-8948-84c647db4517
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
