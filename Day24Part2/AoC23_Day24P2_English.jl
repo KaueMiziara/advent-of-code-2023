@@ -227,6 +227,51 @@ v_3 =  \begin{pmatrix} -87 & 185 & -36 \end{pmatrix} \\
 \end{cases}$
 """
 
+# ╔═╡ 79a6cbd6-9fa2-427c-a27f-be61f7550d13
+md"""
+### Representing a Hailstone in Code
+
+Rather than manually typing and calculating all coefficients by hand, we can represent a hailstone using code by creating a custom type for it.
+"""
+
+# ╔═╡ 41ef55d5-fde8-4bd1-a7f9-4121a0610423
+begin
+	struct Vec3D
+		x :: Int128
+		y :: Int128
+		z :: Int128
+	end
+
+	struct Hailstone
+		p :: Vec3D
+		v :: Vec3D
+	end
+end
+
+# ╔═╡ c7e87f9a-acea-42ab-b8f7-81a4d18299fc
+begin 
+	# Defining hailstones h_0 to h_3:
+	h_0 = Hailstone(
+		Vec3D(291493672529314, 259618209733833, 259618209733833),
+		Vec3D(-9, 119, -272),
+	)
+
+	h_1 = Hailstone(
+		Vec3D(308409248682955, 156803514643857, 424989308414284),
+		Vec3D(-78, 236, -255),
+	)
+
+	h_2 = Hailstone(
+		Vec3D(195379943194796, 213851381371727, 355270583377422),
+		Vec3D(25, 14, -15),
+	)
+
+	h_3 = Hailstone(
+		Vec3D(297329579961934, 122004770593749, 344090716183747),
+		Vec3D(-87, 185, -36)
+	)
+end
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -1306,5 +1351,8 @@ version = "1.4.1+1"
 # ╟─f6790fc7-ec85-447d-9af8-c3f7246ee8ab
 # ╟─1e802438-a50f-41f1-bdb8-3bf735204fda
 # ╟─713ab80f-5bed-4601-8948-84c647db4517
+# ╟─79a6cbd6-9fa2-427c-a27f-be61f7550d13
+# ╠═41ef55d5-fde8-4bd1-a7f9-4121a0610423
+# ╠═c7e87f9a-acea-42ab-b8f7-81a4d18299fc
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
