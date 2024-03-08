@@ -204,7 +204,7 @@ These new equations allow us to create a six-equation linear system by choosing 
 
 # ╔═╡ 713ab80f-5bed-4601-8948-84c647db4517
 md"""
-## Solving the Problem (finally)
+## Solving the Problem
 
 The last steps are to choose 3 hailstones from your input and solve the system using your favorite method.
 
@@ -252,7 +252,7 @@ end
 begin 
 	# Defining hailstones h_0 to h_3:
 	h_0 = Hailstone(
-		Vec3D(291493672529314, 259618209733833, 259618209733833),
+		Vec3D(291493672529314, 259618209733833, 379287136024123),
 		Vec3D(-9, 119, -272),
 	)
 
@@ -272,6 +272,57 @@ begin
 	)
 end
 
+# ╔═╡ ab49daae-9ef9-4191-981d-925879213634
+md"""
+## Solving the System
+
+In Julia, we can solve a linear system of equations with the `\` operator, such as `A \ b`, where $A$ is the unknowns coefficients matrix and $b$ is a vector containing the constants from the right-hand side of the equations.
+
+The puzzle's answer is the sum of the rock's $x, y$ and $z$ coordinates.
+"""
+
+# ╔═╡ 3f08b959-0c06-468f-ae58-2951f8566db5
+A = [
+	(h_0.v.y - h_1.v.y) (h_1.v.x - h_0.v.x) (0) (h_1.p.y - h_0.p.y) (h_0.p.x - h_1.p.x) (0) ;
+
+	(h_0.v.z - h_1.v.z) (0) (h_1.v.x - h_0.v.x) (h_1.p.z - h_0.p.z) (0) (h_0.p.x - h_1.p.x) ;
+
+	
+	(h_0.v.y - h_2.v.y) (h_2.v.x - h_0.v.x) (0) (h_2.p.y - h_0.p.y) (h_0.p.x - h_2.p.x) (0) ;
+
+	(h_0.v.z - h_2.v.z) (0) (h_2.v.x - h_0.v.x) (h_2.p.z - h_0.p.z) (0) (h_0.p.x - h_2.p.x) ;
+
+	
+	(h_0.v.y - h_3.v.y) (h_3.v.x - h_0.v.x) (0) (h_3.p.y - h_0.p.y) (h_0.p.x - h_3.p.x) (0) ;
+
+	(h_0.v.z - h_3.v.z) (0) (h_3.v.x - h_0.v.x) (h_3.p.z - h_0.p.z) (0) (h_0.p.x - h_3.p.x) ;
+]
+
+# ╔═╡ 1c2e0a20-9c05-4237-878e-05952ac991ea
+b = [
+	(h_0.p.x*h_0.v.y - h_0.p.y*h_0.v.x - h_1.p.x*h_1.v.y + h_1.p.y*h_1.v.x),
+	(h_0.p.x*h_0.v.z - h_0.p.z*h_0.v.x - h_1.p.x*h_1.v.z + h_1.p.z*h_1.v.x),
+
+	(h_0.p.x*h_0.v.y - h_0.p.y*h_0.v.x - h_2.p.x*h_2.v.y + h_2.p.y*h_2.v.x),
+	(h_0.p.x*h_0.v.z - h_0.p.z*h_0.v.x - h_2.p.x*h_2.v.z + h_2.p.z*h_2.v.x),
+
+	(h_0.p.x*h_0.v.y - h_0.p.y*h_0.v.x - h_3.p.x*h_3.v.y + h_3.p.y*h_3.v.x),
+	(h_0.p.x*h_0.v.z - h_0.p.z*h_0.v.x - h_3.p.x*h_3.v.z + h_3.p.z*h_3.v.x),
+]
+
+# ╔═╡ abf206b7-f459-434e-8b94-adfdb0949648
+result = A \ b
+
+# ╔═╡ f2cc707c-252e-443f-a06c-d538597ca3c8
+result[1] + result[2] + result[3]
+
+# ╔═╡ 03f89abe-f6e3-47dc-9a5c-f619961efc3f
+md"""
+Due to Day 25's puzzle, I had already answered it (by using someone else's code), so now we can compare the results. The website marks the answer as $948978092202212$ for my input file, which equals Julia's $9.48978092202212 \cdot 10^{14}$.
+
+Therefore, I can finally mark AoC 2023 as completed.
+"""
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
@@ -287,7 +338,7 @@ Plots = "~1.40.1"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.10.0"
+julia_version = "1.10.2"
 manifest_format = "2.0"
 project_hash = "91bdb36b1d05c6dc6d91797905470b96f8237058"
 
@@ -367,7 +418,7 @@ weakdeps = ["Dates", "LinearAlgebra"]
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
-version = "1.0.5+1"
+version = "1.1.0+0"
 
 [[deps.ConcurrentUtilities]]
 deps = ["Serialization", "Sockets"]
@@ -766,7 +817,7 @@ version = "1.3.5+1"
 [[deps.OpenBLAS_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl"]
 uuid = "4536629a-c528-5b80-bd46-f80d51c5b363"
-version = "0.3.23+2"
+version = "0.3.23+4"
 
 [[deps.OpenLibm_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -1354,5 +1405,11 @@ version = "1.4.1+1"
 # ╟─79a6cbd6-9fa2-427c-a27f-be61f7550d13
 # ╠═41ef55d5-fde8-4bd1-a7f9-4121a0610423
 # ╠═c7e87f9a-acea-42ab-b8f7-81a4d18299fc
+# ╟─ab49daae-9ef9-4191-981d-925879213634
+# ╠═3f08b959-0c06-468f-ae58-2951f8566db5
+# ╠═1c2e0a20-9c05-4237-878e-05952ac991ea
+# ╠═abf206b7-f459-434e-8b94-adfdb0949648
+# ╠═f2cc707c-252e-443f-a06c-d538597ca3c8
+# ╟─03f89abe-f6e3-47dc-9a5c-f619961efc3f
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
